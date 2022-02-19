@@ -1,0 +1,3 @@
+<span *ngFor="let letter of letters; let letterIndex = index">
+  <app-board-letter [letter]="letter" [classification]="classify(letter, letterIndex)"></app-board-letter>
+</span>

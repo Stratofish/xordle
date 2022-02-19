@@ -1,0 +1,9 @@
+.board-attempts {
+  list-style: none;
+}
+
+.board-attempts li {
+  height: 40px;
+  width: 170px;
+  border: 1px solid #ccc;
+}

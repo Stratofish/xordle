@@ -1,0 +1,26 @@
+.tile {
+  border: 2px solid black;
+  display: inline-block;
+  width: 30px;
+  height: 40px;
+  line-height: 40px;
+  text-transform: uppercase;
+  text-align: center;
+  overflow: auto;
+  font-size: 1.5em;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+}
+
+.tile-correct {
+  background-color: green;
+  color: white;
+}
+
+.tile-used {
+  background-color: yellow;
+}
+
+.tile-wrong {
+  background-color: #eee;
+}
