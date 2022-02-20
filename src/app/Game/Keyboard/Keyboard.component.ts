@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {LetterClassification} from "../BoardLetter/LetterClassification";
+import {Observable} from "rxjs";
+import {GameplayServiceService} from "../GameplayService.service";
 
 @Component({
   selector: 'app-keyboard',
@@ -11,8 +13,8 @@ export class KeyboardComponent implements OnInit {
   @Input()
   attempts: null | string[] = [];
 
-  @Input()
-  target: null | string = '';
+  target$: Observable<string>;
+  target: string = '';
 
   @Input()
   usedAttempts: number | null = 0;
@@ -23,14 +25,18 @@ export class KeyboardComponent implements OnInit {
     ["Z","X","C","V","B","N","M"]
   ];
 
-  constructor() { }
+  constructor(service: GameplayServiceService) {
+    this.target$ = service.target.asObservable();
+    this.target$.subscribe((value: string) => {
+      this.target = value;
+    });
+  }
 
   ngOnInit(): void {
   }
 
   classifyKey(key: string) {
     if (this.attempts === null) this.attempts = [];
-    if (this.target === null) this.target = '';
     if (this.usedAttempts === null) this.usedAttempts = 0;
 
     let classification = LetterClassification.Wrong;
@@ -52,5 +58,9 @@ export class KeyboardComponent implements OnInit {
     }
 
     return classification;
+  }
+
+  private ngOnChanges() {
+
   }
 }

@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Observable} from "rxjs";
+import {GameplayServiceService} from "../GameplayService.service";
 
 @Component({
   selector: 'app-board',
@@ -7,8 +9,8 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class BoardComponent implements OnInit {
 
-  @Input()
-  target: null | string = '';
+  target$: Observable<string>;
+  target: string = '';
 
   @Input()
   attempts: null | string[] = [];
@@ -16,7 +18,12 @@ export class BoardComponent implements OnInit {
   @Input()
   usedAttempts: number = 0;
 
-  constructor() { }
+  constructor(service: GameplayServiceService) {
+    this.target$ = service.target.asObservable();
+    this.target$.subscribe((value: string) => {
+      this.target = value;
+    });
+  }
 
   ngOnInit(): void {
   }

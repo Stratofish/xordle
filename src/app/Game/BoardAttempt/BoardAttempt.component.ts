@@ -1,5 +1,7 @@
 import {Component, Input, OnInit, OnChanges } from '@angular/core';
 import {LetterClassification} from "../BoardLetter/LetterClassification";
+import {Observable} from "rxjs";
+import {GameplayServiceService} from "../GameplayService.service";
 
 @Component({
   selector: 'app-board-attempt',
@@ -11,15 +13,19 @@ export class BoardAttemptComponent implements OnInit {
   @Input()
   attempt: string = '';
 
-  @Input()
-  target: null | string = '';
+  target$: Observable<string>;
+  target: string = '';
 
   @Input()
   current: boolean = true;
 
   letters: string[] = []
 
-  constructor() {
+  constructor(service: GameplayServiceService) {
+    this.target$ = service.target.asObservable();
+    this.target$.subscribe((value: string) => {
+      this.target = value;
+    });
   }
 
   ngOnInit(): void {

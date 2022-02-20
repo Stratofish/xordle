@@ -1,12 +1,12 @@
 <ul class="board-attempts">
   <li *ngFor="let attempt of attempts; let attemptIndex = index">
-    <app-board-attempt [attempt]="attempt" [target]="target" [current]="attemptIndex === usedAttempts"></app-board-attempt>
+    <app-board-attempt [attempt]="attempt" [current]="attemptIndex === usedAttempts"></app-board-attempt>
   </li>
 </ul>
 
 <hr />
 
-<app-keyboard [attempts]="attempts" [target]="target" [usedAttempts]="usedAttempts"></app-keyboard>
+<app-keyboard [attempts]="attempts" [usedAttempts]="usedAttempts"></app-keyboard>
 
 <hr />
 
