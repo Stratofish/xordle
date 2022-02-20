@@ -1,10 +1,10 @@
 import {Component, Input, OnInit, OnChanges } from '@angular/core';
-import {LetterClassification} from "../board-letter/LetterClassification";
+import {LetterClassification} from "../BoardLetter/LetterClassification";
 
 @Component({
   selector: 'app-board-attempt',
-  templateUrl: './board-attempt.component.html',
-  styleUrls: ['./board-attempt.component.css']
+  templateUrl: './BoardAttempt.component.html',
+  styleUrls: ['./BoardAttempt.component.css']
 })
 export class BoardAttemptComponent implements OnInit {
 

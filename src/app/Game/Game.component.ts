@@ -5,8 +5,8 @@ let MAX_ATTEMPTS = 6;
 
 @Component({
   selector: 'app-game',
-  templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
+  templateUrl: './Game.component.html',
+  styleUrls: ['./Game.component.css']
 })
 export class GameComponent implements OnInit {
 

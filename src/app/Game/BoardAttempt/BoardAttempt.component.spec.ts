@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BoardAttemptComponent } from './board-attempt.component';
+import { BoardAttemptComponent } from './BoardAttempt.component';
 
 describe('BoardAttemptComponent', () => {
   let component: BoardAttemptComponent;

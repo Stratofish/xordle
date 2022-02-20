@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-board',
-  templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
+  templateUrl: './Board.component.html',
+  styleUrls: ['./Board.component.css']
 })
 export class BoardComponent implements OnInit {
 

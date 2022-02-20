@@ -1,10 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {LetterClassification} from "../board-letter/LetterClassification";
+import {LetterClassification} from "../BoardLetter/LetterClassification";
 
 @Component({
   selector: 'app-keyboard',
-  templateUrl: './keyboard.component.html',
-  styleUrls: ['./keyboard.component.css']
+  templateUrl: './Keyboard.component.html',
+  styleUrls: ['./Keyboard.component.css']
 })
 export class KeyboardComponent implements OnInit {
 

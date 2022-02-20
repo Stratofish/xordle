@@ -3,8 +3,8 @@ import {LetterClassification} from "./LetterClassification";
 
 @Component({
   selector: 'app-board-letter',
-  templateUrl: './board-letter.component.html',
-  styleUrls: ['./board-letter.component.css']
+  templateUrl: './BoardLetter.component.html',
+  styleUrls: ['./BoardLetter.component.css']
 })
 export class BoardLetterComponent implements OnInit {
 
