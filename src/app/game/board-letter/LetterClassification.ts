@@ -1,5 +1,6 @@
 export enum LetterClassification {
   Correct,
   Used,
-  Wrong
+  Wrong,
+  Unused
 }

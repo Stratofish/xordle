@@ -34,8 +34,10 @@ export class BoardAttemptComponent implements OnInit {
   }
 
   classify(letter: string, letterIndex: number) {
-    if (this.current)
+    if ((this.attempt === '') ||
+        (this.current)) {
       return LetterClassification.Wrong;
+    }
 
     if (this.target === null)
       this.target = '';
@@ -47,6 +49,6 @@ export class BoardAttemptComponent implements OnInit {
         (this.target.indexOf(letter) !== -1))
       return LetterClassification.Used;
 
-    return LetterClassification.Wrong;
+    return LetterClassification.Unused;
   }
 }

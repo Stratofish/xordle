@@ -10,7 +10,7 @@ let MAX_ATTEMPTS = 6;
 })
 export class GameComponent implements OnInit {
 
-  target: string = 'bogus';
+  target: string = 'BOGUS';
   attempts: string[] = [];
   usedAttempts: number = 0;
 
@@ -18,9 +18,9 @@ export class GameComponent implements OnInit {
     for (let attemptIndex = 0; attemptIndex < MAX_ATTEMPTS; attemptIndex++) {
       this.attempts.push('');
     }
-    this.attempts[0] = 'raise';
-    this.attempts[1] = 'youth';
-    this.attempts[2] = 'quack';
+    this.attempts[0] = 'RAISE';
+    this.attempts[1] = 'YOUTH';
+    this.attempts[2] = 'QUOCK';
     this.usedAttempts = 2;
   }
 

@@ -1,0 +1,3 @@
+<div *ngFor="let row of keys">
+  <app-board-letter *ngFor="let key of row" [letter]="key" [classification]="classifyKey(key)"></app-board-letter>
+</div>

@@ -8,6 +8,7 @@ import { GameComponent } from './game/game.component';
 import { BoardComponent } from './game/board/board.component';
 import { BoardAttemptComponent } from './game/board-attempt/board-attempt.component';
 import { BoardLetterComponent } from './game/board-letter/board-letter.component';
+import { KeyboardComponent } from './game/keyboard/keyboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BoardLetterComponent } from './game/board-letter/board-letter.component
     GameComponent,
     BoardComponent,
     BoardAttemptComponent,
-    BoardLetterComponent
+    BoardLetterComponent,
+    KeyboardComponent
   ],
   imports: [
     BrowserModule,

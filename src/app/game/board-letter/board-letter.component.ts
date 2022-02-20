@@ -30,4 +30,8 @@ export class BoardLetterComponent implements OnInit {
   isWrong() {
     return this.classification === LetterClassification.Wrong;
   }
+
+  isUnused() {
+    return this.classification === LetterClassification.Unused;
+  }
 }

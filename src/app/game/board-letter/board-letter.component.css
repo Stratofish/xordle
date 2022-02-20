@@ -24,3 +24,7 @@
 .tile-wrong {
   background-color: #eee;
 }
+
+.tile-unused {
+  background-color: #aaa;
+}
