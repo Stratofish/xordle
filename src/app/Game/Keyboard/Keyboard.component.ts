@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, OnChanges} from '@angular/core';
 import {LetterClassification} from "../BoardLetter/LetterClassification";
 import {Observable} from "rxjs";
-import {GameplayServiceService} from "../GameplayService.service";
+import {GameplayService} from "../Gameplay.service";
 
 @Component({
   selector: 'app-keyboard',
@@ -10,25 +10,34 @@ import {GameplayServiceService} from "../GameplayService.service";
 })
 export class KeyboardComponent implements OnInit {
 
-  @Input()
-  attempts: null | string[] = [];
-
+  attempts$: Observable<string[]>;
   target$: Observable<string>;
-  target: string = '';
+  usedAttempts$: Observable<number>;
 
-  @Input()
-  usedAttempts: number | null = 0;
+  target: string = '';
+  attempts: string[] = [];
+  usedAttempts: number = 0;
+
 
   keys: string[][] = [
     ["Q","W","E","R","T","Y","U","I","O","P"],
     ["A","S","D","F","G","H","J","K","L"],
-    ["Z","X","C","V","B","N","M"]
+    ["Z","X","C","V","B","N","M", "Backspace", "Enter"]
   ];
 
-  constructor(service: GameplayServiceService) {
+  constructor(service: GameplayService) {
     this.target$ = service.target.asObservable();
+    this.attempts$ = service.attempts.asObservable();
+    this.usedAttempts$ = service.usedAttempts.asObservable();
+
     this.target$.subscribe((value: string) => {
       this.target = value;
+    });
+    this.attempts$.subscribe((value: string[]) => {
+      this.attempts = value;
+    });
+    this.usedAttempts$.subscribe((value: number) => {
+      this.usedAttempts = value;
     });
   }
 

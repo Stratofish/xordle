@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {GameplayServiceService} from "../GameplayService.service";
+import {GameplayService} from "../Gameplay.service";
 
 @Component({
   selector: 'app-board',
@@ -9,23 +9,28 @@ import {GameplayServiceService} from "../GameplayService.service";
 })
 export class BoardComponent implements OnInit {
 
-  target$: Observable<string>;
-  target: string = '';
+  attempts$: Observable<string[]>;
+  usedAttempts$: Observable<number>;
 
-  @Input()
-  attempts: null | string[] = [];
-
-  @Input()
-  usedAttempts: number = 0;
-
-  constructor(service: GameplayServiceService) {
-    this.target$ = service.target.asObservable();
-    this.target$.subscribe((value: string) => {
-      this.target = value;
-    });
+  constructor(private service: GameplayService) {
+    this.attempts$ = service.attempts.asObservable();
+    this.usedAttempts$ = service.usedAttempts.asObservable();
   }
 
   ngOnInit(): void {
   }
 
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (!event.repeat) {
+      if (event.key.length === 1)
+        this.service.addLetter(event.key);
+
+      if (event.code === 'Backspace')
+        this.service.backspace();
+
+      if (event.code === 'Enter')
+        this.service.enter();
+    }
+  }
 }

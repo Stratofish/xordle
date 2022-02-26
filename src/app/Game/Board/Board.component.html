@@ -1,13 +1,13 @@
 <ul class="board-attempts">
-  <li *ngFor="let attempt of attempts; let attemptIndex = index">
-    <app-board-attempt [attempt]="attempt" [current]="attemptIndex === usedAttempts"></app-board-attempt>
+  <li *ngFor="let attempt of attempts$ | async; let attemptIndex = index">
+    <app-board-attempt [attempt]="attempt" [current]="attemptIndex === (usedAttempts$ | async)"></app-board-attempt>
   </li>
 </ul>
 
 <hr />
 
-<app-keyboard [attempts]="attempts" [usedAttempts]="usedAttempts"></app-keyboard>
+<app-keyboard></app-keyboard>
 
 <hr />
 
-{{ target }} - {{ attempts | json }}
+{{ attempts$ | async | json }}
